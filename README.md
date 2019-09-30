@@ -14,14 +14,16 @@ The task consist of creating a Data Table List following the next
 specifications:
 ● [] The elements that contain cities-of-china.json must load on the left
 part of the table.
-  - [] Obtengo los datos del json
+  - [X] Obtengo los datos del json
   - [] Pinto los datos
-  - [] Estructura jsx como la muestra
+  - [X] Estructura jsx como la muestra
 
 ● [] They must be able to be selected or unselected one by one and all at
 the same time with a checkbox. At the same time, all those selected
 should appear on the right.
-
+  - [] Controlar los checkbox
+  - [] Funcionalidad select all
+  
 ● [] It must allow “search” by an input text.
 
 ● [] When the elements are filtered by the search, and by clicking on the
