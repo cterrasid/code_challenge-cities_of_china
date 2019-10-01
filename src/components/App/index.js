@@ -2,6 +2,7 @@ import React, { PureComponent, Fragment } from 'react';
 import data from '../../data/cities-of-china.json';
 import Filters from '../Filters';
 import Dataset from '../Dataset';
+import Selection from '../Selection';
 import './styles.scss';
 
 class App extends PureComponent {
@@ -28,7 +29,7 @@ class App extends PureComponent {
 
 		return (
 			<Fragment>
-				<section className="app__container">
+				<div className="app__container">
 					{/*HEADER*/}
 					<header className="header__container">Cities of China</header>
 					<Filters />
@@ -40,8 +41,8 @@ class App extends PureComponent {
 							Clear
 						</button>
 					</section>
-					<section className="selection__container">Selection</section>
-				</section>
+          <Selection />
+				</div>
 			</Fragment>
 		);
 	}

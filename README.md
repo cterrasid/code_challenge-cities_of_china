@@ -44,4 +44,7 @@ the elements selected
 App schema:
   App
     Filters
+    Dataset
+      CityCard
     Results
+    Selection
