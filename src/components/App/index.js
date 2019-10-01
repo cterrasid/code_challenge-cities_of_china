@@ -27,6 +27,7 @@ class App extends PureComponent {
 
 	render() {
 		console.log(this.state);
+		const {data} = this.state;
 
 		return (
 			<section className="app__container">
@@ -48,7 +49,24 @@ class App extends PureComponent {
 					</label>
 				</form>
 				{/**DATA */}
-				<section className="data__container">Data</section>
+				<section className="data__container">
+					<ul className="data__element">
+					  {data.map(city => {
+					    return (
+					   <label htmlFor="select-city">
+					    <input
+					      id="select-city"
+					      type="checkbox"
+					      value="select-city"
+					      name="select-city"
+					    />
+					  </label>
+					    <li key={city.id}>
+					      <Card id={city.id} name={city.name}/>
+					    </li>
+					  )})}
+					</ul>
+			</section>
 				{/*SELECTION */}
 				<section className="results__container">
 					<p className="results__counter">x items selected</p>
