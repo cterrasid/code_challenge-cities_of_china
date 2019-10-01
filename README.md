@@ -40,3 +40,8 @@ the elements selected
     - [] The attribute id must be used to operate
     - [] The attribute name must be inserted in "name"
     - [] The attribute chineseName must be inserted in Metadata
+
+App schema:
+  App
+    Filters
+    Results

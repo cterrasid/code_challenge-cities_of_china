@@ -1,24 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import CityCard from '../CityCard';
 import './styles.scss';
 
 const Dataset = props => {
-	const { data } = props;
+	const { cities } = props;
+
 	return (
 		<section className="data__container">
 			<ul className="data__city-list">
-				{data.map(city => {
+				{cities.map(city => {
 					return (
 						<li key={city.id}>
-							{/*CARD */}
-							<label htmlFor="select-city">
-								<input id="select-city" type="checkbox" value="select-city" name={city.name} />
-							</label>
-							<img className="city__logo" src="/" alt="Imagen de muestra" />
-							<div className="city__data-wrapper">
-								<p className="city__name">{city.name}</p>
-								<p className="city__chinese-name">{city.chineseName}</p>
-							</div>
+							<CityCard id={city.id} name={city.name} chineseName={city.chineseName} />
 						</li>
 					);
 				})}
@@ -28,7 +22,7 @@ const Dataset = props => {
 };
 
 Dataset.propTypes = {
-	data: PropTypes.objectOf(PropTypes.strings),
+	cities: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
 };
 
 export default Dataset;

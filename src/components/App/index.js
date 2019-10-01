@@ -1,6 +1,7 @@
 import React, { PureComponent, Fragment } from 'react';
 import data from '../../data/cities-of-china.json';
 import Filters from '../Filters';
+import Dataset from '../Dataset';
 import './styles.scss';
 
 class App extends PureComponent {
@@ -8,7 +9,7 @@ class App extends PureComponent {
 		super(props);
 
 		this.state = {
-			data: [],
+			cities: [],
 		};
 	}
 
@@ -17,13 +18,13 @@ class App extends PureComponent {
 	}
 
 	getData = () => {
-		const cities = data.cities;
-		this.setState({ data: cities });
+		const dataCities = data.cities;
+		this.setState({ cities: dataCities });
 	};
 
 	render() {
 		console.log(this.state);
-		const { data } = this.state;
+		const { cities } = this.state;
 
 		return (
 			<Fragment>
@@ -31,31 +32,7 @@ class App extends PureComponent {
 					{/*HEADER*/}
 					<header className="header__container">Cities of China</header>
 					<Filters />
-					{/**DATA */}
-					<section className="data__container">
-						<ul className="data__city-list">
-							{data.map(city => {
-								return (
-									<li key={city.id}>
-                    {/*CARD */}
-										<label htmlFor="select-city">
-											<input
-												id="select-city"
-												type="checkbox"
-												value="select-city"
-												name={city.name}
-											/>
-										</label>
-										<img className="city__logo" src="/" alt="Imagen de muestra" />
-                    <div className="city__data-wrapper">
-                      <p className="city__name">{city.name}</p>
-                      <p className="city__chinese-name">{city.chineseName}</p>
-                    </div>
-									</li>
-								);
-							})}
-						</ul>
-					</section>
+					<Dataset cities={cities} />
 					{/*SELECTION */}
 					<section className="results__container">
 						<p className="results__counter">x items selected</p>
