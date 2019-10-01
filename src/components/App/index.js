@@ -5,6 +5,7 @@ import Filters from '../Filters';
 import Dataset from '../Dataset';
 import Results from '../Results';
 import Selection from '../Selection';
+import Footer from '../Footer';
 import './styles.scss';
 
 class App extends PureComponent {
@@ -36,6 +37,7 @@ class App extends PureComponent {
 				<Dataset cities={cities} />
 				<Results />
 				<Selection />
+				<Footer copy="© 2019" by="Powered by Clarette Terrasi Díaz" />
 			</div>
 		);
 	}
