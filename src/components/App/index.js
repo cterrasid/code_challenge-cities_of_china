@@ -55,6 +55,7 @@ class App extends PureComponent {
 							{data.map(city => {
 								return (
 									<li key={city.id}>
+                    {/*CARD */}
 										<label htmlFor="select-city">
 											<input
 												id="select-city"

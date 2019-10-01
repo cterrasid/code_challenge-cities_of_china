@@ -15,7 +15,7 @@ specifications:
 ● [] The elements that contain cities-of-china.json must load on the left
 part of the table.
   - [X] Obtengo los datos del json
-  - [] Pinto los datos
+  - [X] Pinto los datos
   - [X] Estructura jsx como la muestra
 
 ● [] They must be able to be selected or unselected one by one and all at
