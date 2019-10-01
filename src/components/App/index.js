@@ -1,5 +1,6 @@
 import React, { PureComponent, Fragment } from 'react';
 import data from '../../data/cities-of-china.json';
+import Filters from '../Filters';
 import './styles.scss';
 
 class App extends PureComponent {
@@ -18,11 +19,6 @@ class App extends PureComponent {
 	getData = () => {
 		const cities = data.cities;
 		this.setState({ data: cities });
-
-		//PREGUNTA Y SI NO ELIMINA EL ARCHIVO DE PUBLIC
-		// fetch('cities-of-china.json')
-		// 	.then(res => res.json())
-		// 	.then(d => console.log(d));
 	};
 
 	render() {
@@ -34,21 +30,7 @@ class App extends PureComponent {
 				<section className="app__container">
 					{/*HEADER*/}
 					<header className="header__container">Cities of China</header>
-					{/**FILTERS */}
-					<form className="filter__container">
-						<label className="filter-name__label" htmlFor="filter-name" title="Search by name">
-							<input
-								className="filter__name-input"
-								id="filter-name"
-								type="text"
-								placeholder="Search by name"
-							/>
-						</label>
-						<label className="filter__select" htmlFor="select-all" title="Select all">
-							<input type="checkbox" id="select-all" value="filter__select-all" />
-							Select All
-						</label>
-					</form>
+					<Filters />
 					{/**DATA */}
 					<section className="data__container">
 						<ul className="data__city-list">
