@@ -13,17 +13,28 @@ class App extends PureComponent {
 		super(props);
 
 		this.state = {
-			cities: [],
+			data: {
+				cities: [],
+			},
+			filters: {
+				city: [],
+				cities: [],
+			},
 		};
 	}
 
 	componentDidMount() {
-		this.getData();
+		const dataCities = data.cities;
+
+		this.setState({ data: { cities: dataCities } });
 	}
 
-	getData = () => {
-		const dataCities = data.cities;
-		this.setState({ cities: dataCities });
+	handleSelectCities = e => {
+		const { value } = e.target;
+
+		this.setState(prevState => {
+			return { filters: { ...prevState.filters, city: [] } };
+		});
 	};
 
 	render() {
@@ -34,7 +45,7 @@ class App extends PureComponent {
 			<div className="app__container">
 				<Header title="Cities of China" />
 				<Filters />
-				<Dataset cities={cities} />
+				<Dataset cities={cities} onSelectChange={this.handleSelectCities} />
 				<Results />
 				<Selection />
 				<Footer copy="© 2019" by="Powered by Clarette Terrasi Díaz" />
