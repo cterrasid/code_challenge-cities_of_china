@@ -1,34 +1,39 @@
 {
-  "name": "data_table_list-challenge",
+  "name": "adalab-boiler-plate",
   "version": "0.1.0",
-  "homepage": "./",
   "private": true,
   "dependencies": {
+    "axios": "^0.19.0",
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
-    "react": "^16.10.1",
-    "react-dom": "^16.10.1",
-    "react-scripts": "3.1.2"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint ."
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "pre-commit": [
+    "lint"
+  ],
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.16.4"
   }
 }

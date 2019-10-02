@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import data from '../../data/cities-of-china.json';
+import dataCities from '../../data/cities-of-china.json';
 import Header from '../Header';
 import Filters from '../Filters';
 import Dataset from '../Dataset';
@@ -9,56 +9,71 @@ import Footer from '../Footer';
 import './styles.scss';
 
 class App extends PureComponent {
-	constructor(props) {
-		super(props);
+  constructor(props) {
+    super(props);
 
-		this.state = {
-			data: {
-				cities: [],
-			},
-			filters: {
-				city: [],
-				allCities: [],
-			},
-		};
-	}
+    this.state = {
+      data: {
+        cities: [],
+      },
+      filters: {
+        cityCollector: [],
+        citiesChecked: false,
+      },
+    };
+  }
 
-	componentDidMount() {
-		const dataCities = data.cities;
+  componentDidMount() {
+    const { cities } = dataCities;
 
-		this.setState({ data: { cities: dataCities } });
-	}
+    this.setState({ data: { cities } });
+  }
 
-	handleSelectCities = e => {
-		const { value, checked } = e.target;
-console.log(checked, value);
+  handleSelectCities = e => {
+    const { value, checked } = e.target;
+    const { filters } = this.state;
+    const { cityCollector } = filters;
 
-		this.setState(prevState => {
-			return {
-				filters: {
-					...prevState.filters,
-					city: checked
-						? prevState.filters.city.concat(value)
-						: prevState.filters.city.filter(c => c !== value),
-				},
-			};
-		});
-	};
+    this.setState({
+      filters: {
+        cityCollector: checked
+          ? [...cityCollector, value]
+          : cityCollector.filter(c => c !== value),
+      },
+    });
+  };
 
-	render() {
-		const { cities } = this.state.data;
+  handleSelectAllCities = e => {
+    const { checked } = e.target;
 
-		return (
-			<div className="app__container">
-				<Header title="Cities of China" />
-				<Filters />
-				<Dataset cities={cities} onSelectChange={this.handleSelectCities} />
-				<Results />
-				<Selection />
-				<Footer copy="© 2019" by="Powered by Clarette Terrasi Díaz" />
-			</div>
-		);
-	}
+    this.setState({
+      filters: {
+        cityCollector: checked ? dataCities.cities.map(c => c.id) : [],
+      },
+    });
+  };
+
+  render() {
+    const { data } = this.state;
+    const { cities } = data;
+    const { filters } = this.state;
+    const { cityCollector } = filters;
+
+    return (
+      <div className="app__container">
+        <Header title="Cities of China" />
+        <Filters onSelectAllChange={this.handleSelectAllCities} />
+        <Dataset
+          cities={cities}
+          onSelectChange={this.handleSelectCities}
+          cityCollector={cityCollector}
+        />
+        <Results />
+        <Selection />
+        <Footer copy="© 2019" by="Powered by Clarette Terrasi Díaz" />
+      </div>
+    );
+  }
 }
 
 export default App;
