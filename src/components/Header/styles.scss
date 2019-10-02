@@ -2,13 +2,13 @@
 @import '../../stylesheets/mixins.scss';
 
 .header {
-  &__container {
-  @include boxSize($75px, 100%);
-  padding: $15px;
-  }
-  
-  &__title {
-    padding-left: $15px;
-    font-size: $fontSizeL;
-  }
+	// &__container {
+	// 	@include boxSize($75px, 100%);
+	// 	padding: $15px;
+	// }
+
+	// &__title {
+	// 	padding-left: $15px;
+	// 	font-size: $fontSizeL;
+	// }
 }

@@ -13,28 +13,46 @@ class App extends PureComponent {
 		super(props);
 
 		this.state = {
-			cities: [],
+			data: {
+				cities: [],
+			},
+			filters: {
+				city: [],
+				allCities: [],
+			},
 		};
 	}
 
 	componentDidMount() {
-		this.getData();
+		const dataCities = data.cities;
+
+		this.setState({ data: { cities: dataCities } });
 	}
 
-	getData = () => {
-		const dataCities = data.cities;
-		this.setState({ cities: dataCities });
+	handleSelectCities = e => {
+		const { value, checked } = e.target;
+console.log(checked, value);
+
+		this.setState(prevState => {
+			return {
+				filters: {
+					...prevState.filters,
+					city: checked
+						? prevState.filters.city.concat(value)
+						: prevState.filters.city.filter(c => c !== value),
+				},
+			};
+		});
 	};
 
 	render() {
-		console.log(this.state);
-		const { cities } = this.state;
+		const { cities } = this.state.data;
 
 		return (
 			<div className="app__container">
 				<Header title="Cities of China" />
 				<Filters />
-				<Dataset cities={cities} />
+				<Dataset cities={cities} onSelectChange={this.handleSelectCities} />
 				<Results />
 				<Selection />
 				<Footer copy="© 2019" by="Powered by Clarette Terrasi Díaz" />
