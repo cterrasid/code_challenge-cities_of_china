@@ -1,50 +1,59 @@
-Requirements you must accomplish:
-● [X] Using ReactJs.
-● [] Your test should have a README that contains only the instructions
-for executing it.
-● [] We consider value-added using React Hooks and not using Redux.
+# List of Chinese cities <img src="./src/images/china-icon.png" width="50" alt="Chinese build icon">
 
-Optional Technologies:
-● [] Typescript
-● [] Test with Jest
-● [X] Sass
-● [] Webpack
+_Simple interface builded with React, which shows a list of chinese cities. It can be filtered by name, and it can be selected each one with their individual checkboxes, or all with an unique checkbox placed on the top. The selected cities, will appear on the right part of the app, and it can be removed from there individually or generally with a "Clear" button._
 
-The task consist of creating a Data Table List following the next
-specifications:
-● [] The elements that contain cities-of-china.json must load on the left
-part of the table.
-  - [X] Obtengo los datos del json
-  - [X] Pinto los datos
-  - [X] Estructura jsx como la muestra
+## Project Structure 📄
 
-● [] They must be able to be selected or unselected one by one and all at
-the same time with a checkbox. At the same time, all those selected
-should appear on the right.
-  - [] Controlar los checkbox
-  - [] Funcionalidad select all
-  
-● [] It must allow “search” by an input text.
+```
+/
+`-_src
+    |-components
+      |-App
+          |-Header
+          |-Filters
+          |-Dataset
+              |-CityCard
+          |-Results
+          |-Selection
+          |-Footer
+    |-stylesheets
+    |-images
+```
 
-● [] When the elements are filtered by the search, and by clicking on the
-general checkbox, they must be able to be selected or unselected
-only the filtered elements.
+## Starting 🚀
 
-● [] The items that are in the right should have an “X” to be able to
-eliminate their selection.
+_These instructions will allow you to obtain a copy of the project on your local machine for development and testing purposes._
 
-● [] In the top part of the right column should be shown the counting of
-the elements selected
+1. You need to install [Node 10.16.0 & npm 6.9.0](https://nodejs.org/es/download/).
 
-● [] Each item on the list should follow the next indications:
-    - [] The attribute id must be used to operate
-    - [] The attribute name must be inserted in "name"
-    - [] The attribute chineseName must be inserted in Metadata
+2. Clone the repository: `$ git clone https://github.com/cterrasid/data_table_list-challenge`. You can also Fork the project so you'll have it on your GitHub profile.
 
-App schema:
-  App
-    Filters
-    Dataset
-      CityCard
-    Results
-    Selection
+3. Install dependencies with `$ npm install`.
+
+4. To launch the project and see it in the browser, run `$ npm start`.
+
+
+## Built with 🛠️
+
+### Dependencies
+
+- [node-sass 4.12.0](https://www.npmjs.com/package/node-sass)
+- [prop-types 15.7.2](https://www.npmjs.com/package/prop-types)
+- [react 16.8.6](https://www.npmjs.com/package/react)
+- [react-dom 16.8.6](https://www.npmjs.com/package/react-dom)
+- [react-scripts 3.0.1](https://www.npmjs.com/package/react-scripts)
+
+### Development dependencies
+
+- [eslint-config-airbnb 17.1.0](https://www.npmjs.com/package/eslint-config-airbnb)
+- [eslint-config-prettier 4.1.0](https://www.npmjs.com/package/eslint-config-prettier)
+- [eslint-plugin-import 2.16.0](https://www.npmjs.com/package/eslint-plugin-import)
+- [eslint-plugin-jsx-a11y 6.2.1](https://www.npmjs.com/package/eslint-plugin-jsx-a11y)
+- [eslint-plugin-prettier 3.1.0](https://www.npmjs.com/package/eslint-plugin-prettier)
+- [eslint-plugin-react 7.12.4](https://www.npmjs.com/package/eslint-plugin-react)
+- [pre-commit 1.2.2](https://www.npmjs.com/package/pre-commit)
+- [prettier 1.16.4](https://www.npmjs.com/package/prettier)
+
+## Author ✒️
+
+- Clarette Terrasi Díaz - [Go to my portfolio](https://cterrasid.github.io/my-portfolio/)
