@@ -1,0 +1,13 @@
+//FLEX
+@mixin flexContainer($display, $justifyContent, $alignItems, $flexFlow) {
+  display: $display;
+  justify-content: $justifyContent;
+  align-items: $alignItems;
+  flex-flow: $flexFlow;
+}
+
+//HEIGHT AND WIDTH
+@mixin boxSize($height, $width) {
+  height: $height;
+  width: $width;
+}
