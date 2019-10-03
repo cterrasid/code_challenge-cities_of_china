@@ -15,7 +15,7 @@ class App extends PureComponent {
       },
       filters: {
         cityCollector: [],
-        queryName: '',
+        filteredCities: [],
       },
     };
   }
@@ -28,13 +28,28 @@ class App extends PureComponent {
 
   filterByName = e => {
     const { value } = e.target;
-
+    const { data } = this.state;
+    const { cities } = data;
+    const queryCities = cities.filter(city =>
+      city.id.toLowerCase().includes(value.toLowerCase()),
+    );
     this.setState(prevState => ({
       filters: {
         ...prevState.filters,
-        queryName: value,
+        filteredCities: queryCities,
       },
     }));
+  };
+
+  getFilteredCities = () => {
+    const { filters, data } = this.state;
+    const { cities } = data;
+    const { filteredCities } = filters;
+
+    if (!filteredCities.length) {
+      return cities;
+    }
+    return filteredCities;
   };
 
   handleSelectCities = e => {
@@ -66,7 +81,7 @@ class App extends PureComponent {
     const { data } = this.state;
     const { cities } = data;
     const { filters } = this.state;
-    const { cityCollector, queryName } = filters;
+    const { cityCollector, filteredCities } = filters;
 
     return (
       <div className="app__container">
@@ -74,7 +89,8 @@ class App extends PureComponent {
         <Main
           onSelectAllChange={this.handleSelectAllCities}
           filterByName={this.filterByName}
-          queryName={queryName}
+          getFilteredCities={this.getFilteredCities}
+          filteredCities={filteredCities}
           cities={cities}
           onSelectChange={this.handleSelectCities}
           cityCollector={cityCollector}

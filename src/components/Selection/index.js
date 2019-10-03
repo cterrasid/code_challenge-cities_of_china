@@ -23,6 +23,7 @@ const Selection = props => {
 
 Selection.propTypes = {
   cityCollector: PropTypes.arrayOf(PropTypes.string).isRequired,
+  // cities: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)).isRequired,
 };
 
 export default Selection;

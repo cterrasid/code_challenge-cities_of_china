@@ -25,7 +25,7 @@ Checkbox.propTypes = {
   name: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  checked: PropTypes.arrayOf(PropTypes.string).isRequired,
+  checked: PropTypes.bool.isRequired,
 };
 
 export default Checkbox;

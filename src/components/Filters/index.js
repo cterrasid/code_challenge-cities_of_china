@@ -4,7 +4,12 @@ import Checkbox from '../Checkbox';
 import './styles.scss';
 
 const Filters = props => {
-  const { filterByName, queryName, onSelectAllChange } = props;
+  const {
+    filterByName,
+    filteredCities,
+    getFilteredCities,
+    onSelectAllChange,
+  } = props;
 
   return (
     <form className="filter__container">
@@ -19,7 +24,8 @@ const Filters = props => {
           type="text"
           placeholder="Search by name"
           onKeyUp={filterByName}
-          queryName={queryName}
+          filteredCities={filteredCities}
+          getFilteredCities={getFilteredCities}
         />
       </label>
       <Checkbox
@@ -35,7 +41,8 @@ const Filters = props => {
 Filters.propTypes = {
   onSelectAllChange: PropTypes.func.isRequired,
   filterByName: PropTypes.func.isRequired,
-  queryName: PropTypes.string.isRequired,
+  filteredCities: PropTypes.string.isRequired,
+  getFilteredCities: PropTypes.string.isRequired,
 };
 
 export default Filters;

@@ -6,9 +6,10 @@ import './styles.scss';
 
 const QueryData = props => {
   const {
-    filterByName,
-    queryName,
     onSelectAllChange,
+    filterByName,
+    filteredCities,
+    getFilteredCities,
     cities,
     onSelectChange,
     cityCollector,
@@ -19,13 +20,15 @@ const QueryData = props => {
       <Filters
         onSelectAllChange={onSelectAllChange}
         filterByName={filterByName}
-        queryName={queryName}
+        filteredCities={filteredCities}
+        getFilteredCities={getFilteredCities}
       />
       <Dataset
         cities={cities}
         onSelectChange={onSelectChange}
         cityCollector={cityCollector}
-        queryName={queryName}
+        filteredCities={filteredCities}
+        getFilteredCities={getFilteredCities}
       />
     </section>
   );
@@ -34,10 +37,11 @@ const QueryData = props => {
 QueryData.propTypes = {
   onSelectAllChange: PropTypes.func.isRequired,
   filterByName: PropTypes.func.isRequired,
+  filteredCities: PropTypes.string.isRequired,
   cities: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)).isRequired,
   onSelectChange: PropTypes.func.isRequired,
   cityCollector: PropTypes.arrayOf(PropTypes.string).isRequired,
-  queryName: PropTypes.string.isRequired,
+  getFilteredCities: PropTypes.func.isRequired,
 };
 
 export default QueryData;

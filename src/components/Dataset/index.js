@@ -5,14 +5,12 @@ import CityCard from '../CityCard';
 import './styles.scss';
 
 const Dataset = props => {
-  const { cities, onSelectChange, cityCollector } = props;
-  // const filteredCities = cities.filter(city =>
-  //   city.id.toLowerCase().includes(queryName.toLowerCase()),
-  // );
+  const { filteredCities, onSelectChange, cityCollector } = props;
+
   return (
     <section className="data__container">
       <ul className="data__city-list">
-        {cities.map(city => {
+        {filteredCities.map(city => {
           return (
             <li key={city.id}>
               <Checkbox
@@ -38,10 +36,10 @@ const Dataset = props => {
 };
 
 Dataset.propTypes = {
-  cities: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)).isRequired,
+  filteredCities: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string))
+    .isRequired,
   onSelectChange: PropTypes.func.isRequired,
   cityCollector: PropTypes.arrayOf(PropTypes.string).isRequired,
-  // queryName: PropTypes.string.isRequired,
 };
 
 export default Dataset;
