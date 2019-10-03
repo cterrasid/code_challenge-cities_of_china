@@ -4,7 +4,6 @@ import Selection from '../Selection';
 import './styles.scss';
 
 const ResultData = () => {
-
   return (
     <section className="result-data__container">
       <Counter />

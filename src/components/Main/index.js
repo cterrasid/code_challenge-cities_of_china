@@ -5,7 +5,14 @@ import ResultData from '../ResultData';
 import './styles.scss';
 
 const Main = props => {
-  const { filterByName, queryName, onSelectAllChange, cities, onSelectChange, cityCollector } = props;
+  const {
+    filterByName,
+    queryName,
+    onSelectAllChange,
+    cities,
+    onSelectChange,
+    cityCollector,
+  } = props;
 
   return (
     <main className="main__container">
@@ -15,7 +22,8 @@ const Main = props => {
         cities={cities}
         onSelectChange={onSelectChange}
         cityCollector={cityCollector}
-        queryName={queryName} />
+        queryName={queryName}
+      />
       <ResultData />
     </main>
   );

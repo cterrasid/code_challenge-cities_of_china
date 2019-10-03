@@ -5,21 +5,28 @@ import Dataset from '../Dataset';
 import './styles.scss';
 
 const QueryData = props => {
-  const { filterByName, queryName, onSelectAllChange, cities, onSelectChange, cityCollector } = props;
+  const {
+    filterByName,
+    queryName,
+    onSelectAllChange,
+    cities,
+    onSelectChange,
+    cityCollector,
+  } = props;
 
   return (
     <section className="query-data__container">
-        <Filters
-          onSelectAllChange={onSelectAllChange}
-          filterByName={filterByName}
-          queryName={queryName}
-        />
-        <Dataset
-          cities={cities}
-          onSelectChange={onSelectChange}
-          cityCollector={cityCollector}
-          queryName={queryName}
-        />
+      <Filters
+        onSelectAllChange={onSelectAllChange}
+        filterByName={filterByName}
+        queryName={queryName}
+      />
+      <Dataset
+        cities={cities}
+        onSelectChange={onSelectChange}
+        cityCollector={cityCollector}
+        queryName={queryName}
+      />
     </section>
   );
 };

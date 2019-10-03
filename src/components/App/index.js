@@ -74,9 +74,11 @@ class App extends PureComponent {
         <Main
           onSelectAllChange={this.handleSelectAllCities}
           filterByName={this.filterByName}
-          queryName={queryName} cities={cities}
+          queryName={queryName}
+          cities={cities}
           onSelectChange={this.handleSelectCities}
-          cityCollector={cityCollector} />
+          cityCollector={cityCollector}
+        />
         <Footer copy="© 2019" by="Powered by Clarette Terrasi Díaz" />
       </div>
     );
