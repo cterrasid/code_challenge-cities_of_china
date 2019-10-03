@@ -12,7 +12,7 @@ const Main = props => {
       <QueryData
         onSelectAllChange={onSelectAllChange}
         filterByName={filterByName}
-        queryName={queryName} cities={cities}
+        cities={cities}
         onSelectChange={onSelectChange}
         cityCollector={cityCollector}
         queryName={queryName} />
