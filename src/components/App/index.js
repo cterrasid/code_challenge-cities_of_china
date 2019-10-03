@@ -1,10 +1,7 @@
 import React, { PureComponent } from 'react';
 import dataCities from '../../data/cities-of-china.json';
 import Header from '../Header';
-import Filters from '../Filters';
-import Dataset from '../Dataset';
-import Results from '../Results';
-import Selection from '../Selection';
+import Main from '../Main';
 import Footer from '../Footer';
 import './styles.scss';
 
@@ -74,19 +71,13 @@ class App extends PureComponent {
     return (
       <div className="app__container">
         <Header title="Cities of China" />
-        <Filters
+        <Main
           onSelectAllChange={this.handleSelectAllCities}
           filterByName={this.filterByName}
-          queryName={queryName}
-        />
-        <Dataset
-          cities={cities}
+          queryName={queryName} cities={cities}
           onSelectChange={this.handleSelectCities}
           cityCollector={cityCollector}
-          queryName={queryName}
-        />
-        <Results />
-        <Selection />
+          queryName={queryName} />
         <Footer copy="© 2019" by="Powered by Clarette Terrasi Díaz" />
       </div>
     );
