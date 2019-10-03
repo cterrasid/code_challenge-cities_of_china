@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Checkbox from '../Checkbox';
 import './styles.scss';
 
 const Filters = props => {
@@ -21,15 +22,12 @@ const Filters = props => {
           queryName={queryName}
         />
       </label>
-      <label className="filter__select" htmlFor="select-all" title="Select all">
-        <input
-          type="checkbox"
-          id="select-all"
-          value="filter__select-all"
-          onChange={onSelectAllChange}
-        />
-        Select All
-      </label>
+      <Checkbox
+        id="select-all"
+        name="select-all"
+        title="Select all"
+        onChange={onSelectAllChange}
+      />
     </form>
   );
 };

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 const Checkbox = props => {
-  const { id, name, onSelectChange, cityCollector } = props;
+  const { id, name, onChange, title, checked } = props;
 
   return (
     <label htmlFor={id}>
@@ -12,9 +12,10 @@ const Checkbox = props => {
         type="checkbox"
         value={id}
         name={name}
-        onChange={onSelectChange}
-        checked={cityCollector.includes(id)}
+        onChange={onChange}
+        checked={checked}
       />
+      {title}
     </label>
   );
 };
@@ -22,8 +23,9 @@ const Checkbox = props => {
 Checkbox.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  onSelectChange: PropTypes.func.isRequired,
-  cityCollector: PropTypes.arrayOf(PropTypes.string).isRequired,
+  title: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  checked: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default Checkbox;

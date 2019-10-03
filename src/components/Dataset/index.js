@@ -18,8 +18,9 @@ const Dataset = props => {
               <Checkbox
                 id={city.id}
                 name={city.name}
-                onSelectChange={onSelectChange}
-                cityCollector={cityCollector}
+                onChange={onSelectChange}
+                title=""
+                checked={cityCollector.includes(city.id)}
               />
               <CityCard
                 id={city.id}
