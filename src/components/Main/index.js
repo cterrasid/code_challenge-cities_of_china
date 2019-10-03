@@ -24,7 +24,7 @@ const Main = props => {
         cityCollector={cityCollector}
         queryName={queryName}
       />
-      <ResultData />
+      <ResultData cityCollector={cityCollector} />
     </main>
   );
 };
