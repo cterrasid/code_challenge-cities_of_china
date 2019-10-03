@@ -18,6 +18,7 @@ class App extends PureComponent {
       },
       filters: {
         cityCollector: [],
+        queryName: '',
       },
     };
   }
@@ -27,6 +28,17 @@ class App extends PureComponent {
 
     this.setState({ data: { cities } });
   }
+
+  filterByName = e => {
+    const { value } = e.target;
+
+    this.setState(prevState => ({
+      filters: {
+        ...prevState.filters,
+        queryName: value,
+      },
+    }));
+  };
 
   handleSelectCities = e => {
     const { value, checked } = e.target;
@@ -45,27 +57,33 @@ class App extends PureComponent {
   handleSelectAllCities = e => {
     const { checked } = e.target;
 
-    this.setState({
+    this.setState(prevState => ({
+      ...prevState.filters,
       filters: {
         cityCollector: checked ? dataCities.cities.map(c => c.id) : [],
       },
-    });
+    }));
   };
 
   render() {
     const { data } = this.state;
     const { cities } = data;
     const { filters } = this.state;
-    const { cityCollector } = filters;
+    const { cityCollector, queryName } = filters;
 
     return (
       <div className="app__container">
         <Header title="Cities of China" />
-        <Filters onSelectAllChange={this.handleSelectAllCities} />
+        <Filters
+          onSelectAllChange={this.handleSelectAllCities}
+          filterByName={this.filterByName}
+          queryName={queryName}
+        />
         <Dataset
           cities={cities}
           onSelectChange={this.handleSelectCities}
           cityCollector={cityCollector}
+          queryName={queryName}
         />
         <Results />
         <Selection />
