@@ -57,22 +57,23 @@ class App extends PureComponent {
     const { filters } = this.state;
     const { cityCollector } = filters;
 
-    this.setState({
+    this.setState(prevState => ({
+      ...prevState,
       filters: {
         cityCollector: checked
           ? [...cityCollector, value]
           : cityCollector.filter(c => c !== value),
       },
-    });
+    }));
   };
 
   handleSelectAllCities = e => {
     const { checked } = e.target;
 
     this.setState(prevState => ({
-      ...prevState.filters,
       filters: {
-        cityCollector: checked ? dataCities.cities.map(c => c.id) : [],
+        ...prevState.filters,
+        cityCollector: checked ? this.getFilteredCities().map(c => c.id) : [],
       },
     }));
   };
