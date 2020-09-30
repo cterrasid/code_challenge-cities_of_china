@@ -1,19 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './styles.scss';
+import React from "react";
+import "./styles.scss";
 
-const Header = props => {
-  const { title } = props;
+const header = {
+  title: "Cities of China",
+};
 
+export default function Header() {
   return (
     <header className="header__container">
-      <h1 className="header__title">{title}</h1>
+      <h1 className="header__title">{header.title}</h1>
     </header>
   );
-};
-
-Header.propTypes = {
-  title: PropTypes.string.isRequired,
-};
-
-export default Header;
+}

@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './styles.scss';
+import React from 'react'
+import PropTypes from 'prop-types'
+import './styles.scss'
 
 const Filters = props => {
-  const { filterByName, queryName, onSelectAllChange } = props;
+  const { filterByName, queryName, onSelectAllChange } = props
 
   return (
     <form className="filter__container">
@@ -31,13 +31,13 @@ const Filters = props => {
         Select All
       </label>
     </form>
-  );
-};
+  )
+}
 
 Filters.propTypes = {
   onSelectAllChange: PropTypes.func.isRequired,
   filterByName: PropTypes.func.isRequired,
-  queryName: PropTypes.string.isRequired,
-};
+  queryName: PropTypes.string.isRequired
+}
 
-export default Filters;
+export default Filters

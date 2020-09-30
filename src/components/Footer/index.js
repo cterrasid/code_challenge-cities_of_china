@@ -1,23 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './styles.scss';
+import React from "react";
+import "./styles.scss";
 
-const Footer = props => {
-  const { copy, by } = props;
+const footer = {
+  text: "Created by Clarette",
+  year: "2020",
+};
 
+export default function Footer() {
   return (
     <footer className="footer__container">
-      <em>
-        <strong>{by}</strong>
-        <small>{copy}</small>
-      </em>
+      <strong>{footer.text}</strong>
+      <small>{footer.year}</small>
     </footer>
   );
-};
-
-Footer.propTypes = {
-  copy: PropTypes.string.isRequired,
-  by: PropTypes.string.isRequired,
-};
-
-export default Footer;
+}
