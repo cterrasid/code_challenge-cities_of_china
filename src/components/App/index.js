@@ -26,10 +26,10 @@ class App extends PureComponent {
     this.setState({ data: { cities } });
   }
 
-  filterByName = e => {
+  filterByName = (e) => {
     const { value } = e.target;
 
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       filters: {
         ...prevState.filters,
         queryName: value,
@@ -37,7 +37,7 @@ class App extends PureComponent {
     }));
   };
 
-  handleSelectCities = e => {
+  handleSelectCities = (e) => {
     const { value, checked } = e.target;
     const { filters } = this.state;
     const { cityCollector } = filters;
@@ -46,18 +46,18 @@ class App extends PureComponent {
       filters: {
         cityCollector: checked
           ? [...cityCollector, value]
-          : cityCollector.filter(c => c !== value),
+          : cityCollector.filter((c) => c !== value),
       },
     });
   };
 
-  handleSelectAllCities = e => {
+  handleSelectAllCities = (e) => {
     const { checked } = e.target;
 
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       ...prevState.filters,
       filters: {
-        cityCollector: checked ? dataCities.cities.map(c => c.id) : [],
+        cityCollector: checked ? dataCities.cities.map((c) => c.id) : [],
       },
     }));
   };
