@@ -1,5 +1,5 @@
-import React from 'react';
-import './styles.scss';
+import React from 'react'
+import './styles.scss'
 
 const Counter = () => {
   return (
@@ -9,7 +9,7 @@ const Counter = () => {
         Clear
       </button>
     </section>
-  );
-};
+  )
+}
 
-export default Counter;
+export default Counter
