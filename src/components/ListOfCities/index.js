@@ -1,10 +1,10 @@
 import React from "react";
-import data from "data/cities-of-china.json";
 import City from "components/City";
 import "./styles.scss";
+import useCities from "hooks/useCities";
 
 export default function ListOfCities() {
-  const { cities } = data;
+  const { cities } = useCities();
 
   return (
     <section className="data__container">
