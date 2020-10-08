@@ -3,12 +3,12 @@ import useCities from "hooks/useCities";
 import "./styles.scss";
 
 export default function Filters() {
-  const { cities, selectedCities, selectAllCities } = useCities();
+  const { selectAllCities, cities, selectedCities } = useCities();
 
   const handleChange = (e) => {
     const { checked } = e.target;
-    // si esta checked
-    console.log(cities);
+
+    selectAllCities(checked);
   };
 
   return (
@@ -31,6 +31,7 @@ export default function Filters() {
           id="select-all"
           value="filter__select-all"
           onChange={handleChange}
+          checked={selectedCities.length === cities.length}
         />
         Select All
       </label>

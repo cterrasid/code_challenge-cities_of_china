@@ -1,11 +1,11 @@
 export const ACTION = {
-  UPDATE_CHECKED: "select/deselect_city",
+  UPDATE_CHECKED_CITY: "select/deselect_city",
   SELECT_ALL_CITIES: "select/deselect_all_cities",
 };
 
 export default function citiesReducer(state, action) {
   switch (action.type) {
-    case ACTION.UPDATE_CHECKED:
+    case ACTION.UPDATE_CHECKED_CITY:
       return {
         ...state,
         selectedCities: action.payload,
