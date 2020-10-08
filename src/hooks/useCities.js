@@ -6,7 +6,6 @@ export default function useCities() {
   const { cities, selectedCities, filteredCities } = state;
 
   return {
-    cities,
     selectedCities,
     filteredCities,
     selectCities: (checked, id) =>
@@ -27,6 +26,11 @@ export default function useCities() {
         payload: cities.filter((city) =>
           city.name.toLowerCase().includes(value.toLowerCase())
         ),
+      }),
+    clearSelectedCity: (id) =>
+      dispatch({
+        type: ACTION.CLEAR_CITY,
+        payload: selectedCities.filter((city) => city.id !== id),
       }),
   };
 }

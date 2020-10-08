@@ -2,6 +2,8 @@ export const ACTION = {
   FILTER_CITIES_BY_NAME: "filter_cities",
   UPDATE_CHECKED_CITY: "select/deselect_city",
   SELECT_ALL_CITIES: "select/deselect_all_cities",
+  CLEAR_CITY: "clear_city",
+  CLEAR_ALL_CITIES: "clear_all_cities",
 };
 
 export default function citiesReducer(state, action) {
@@ -17,6 +19,11 @@ export default function citiesReducer(state, action) {
         selectedCities: action.payload,
       };
     case ACTION.SELECT_ALL_CITIES:
+      return {
+        ...state,
+        selectedCities: action.payload,
+      };
+    case ACTION.CLEAR_CITY:
       return {
         ...state,
         selectedCities: action.payload,

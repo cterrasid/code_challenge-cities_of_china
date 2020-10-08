@@ -2,7 +2,7 @@ import React from "react";
 import Filters from "components/Filters";
 import ListOfCities from "components/ListOfCities";
 import Counter from "components/Counter";
-import Selection from "components/Selection";
+import SelectionOfCities from "components/SelectionOfCities";
 import "./styles.scss";
 
 export default function Main() {
@@ -14,7 +14,7 @@ export default function Main() {
       </section>
       <section className="result-data__container">
         <Counter />
-        <Selection />
+        <SelectionOfCities />
       </section>
     </main>
   );
