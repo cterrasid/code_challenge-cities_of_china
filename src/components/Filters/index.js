@@ -12,7 +12,6 @@ export default function Filters() {
 
   const onChangeCheckbox = (e) => {
     const { checked } = e.target;
-
     selectAllCities(checked);
   };
 

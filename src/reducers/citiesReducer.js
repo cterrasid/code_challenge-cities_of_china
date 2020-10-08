@@ -28,6 +28,11 @@ export default function citiesReducer(state, action) {
         ...state,
         selectedCities: action.payload,
       };
+    case ACTION.CLEAR_ALL_CITIES:
+      return {
+        ...state,
+        selectedCities: action.payload,
+      };
     default:
       throw new Error(`Action ${action.type} is not working!`);
   }

@@ -32,5 +32,10 @@ export default function useCities() {
         type: ACTION.CLEAR_CITY,
         payload: selectedCities.filter((city) => city.id !== id),
       }),
+    clearAllSelectedCities: () =>
+      dispatch({
+        type: ACTION.CLEAR_ALL_CITIES,
+        payload: [],
+      }),
   };
 }

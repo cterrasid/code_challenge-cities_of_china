@@ -12,7 +12,7 @@ export default function City({ city, withClose = false }) {
     selectCities(checked, id);
   };
 
-  const onClickClose = (e) => {
+  const handleCloseCity = (e) => {
     const { id } = e.target;
     clearSelectedCity(id);
   };
@@ -38,7 +38,7 @@ export default function City({ city, withClose = false }) {
           <p className="city__chinese-name">{chineseName}</p>
         </div>
         {withClose && (
-          <button className="city__close" id={id} onClick={onClickClose}>
+          <button className="city__close" id={id} onClick={handleCloseCity}>
             X
           </button>
         )}
