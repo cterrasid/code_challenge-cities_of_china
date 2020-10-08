@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import chinaIcon from "images/china-icon.png";
 import useCities from "hooks/useCities";
 import "./styles.scss";
 
 export default function City({ city, withClose = false }) {
   const { id, name, chineseName } = city;
-  const { selectedCities, selectCities, clearSelectedCity } = useCities();
+  const {
+    selectedCities,
+    selectCities,
+    clearSelectedCity,
+    countSelectedCities,
+  } = useCities();
 
   const handleChange = (e) => {
     const { id, checked } = e.target;

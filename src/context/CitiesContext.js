@@ -8,6 +8,7 @@ const initialState = {
   cities: data.cities,
   filteredCities: data.cities,
   selectedCities: [],
+  counter: 0,
 };
 
 export function CitiesContextProvider({ children }) {
