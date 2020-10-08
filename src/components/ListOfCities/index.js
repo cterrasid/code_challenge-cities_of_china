@@ -4,12 +4,12 @@ import "./styles.scss";
 import useCities from "hooks/useCities";
 
 export default function ListOfCities() {
-  const { cities } = useCities();
+  const { filteredCities } = useCities();
 
   return (
     <section className="data__container">
       <ul className="data__city-list">
-        {cities.map((city) => {
+        {filteredCities.map((city) => {
           return (
             <li key={city.id}>
               <City city={city} />
