@@ -6,6 +6,7 @@ const CitiesContext = createContext({});
 
 const initialState = {
   cities: data.cities,
+  filteredCities: data.cities,
   selectedCities: [],
 };
 
