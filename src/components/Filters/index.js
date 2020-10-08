@@ -1,9 +1,15 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import './styles.scss'
+import React from "react";
+import useCities from "hooks/useCities";
+import "./styles.scss";
 
-const Filters = props => {
-  const { filterByName, queryName, onSelectAllChange } = props
+export default function Filters() {
+  const { cities, selectedCities, selectAllCities } = useCities();
+
+  const handleChange = (e) => {
+    const { checked } = e.target;
+    // si esta checked
+    console.log(cities);
+  };
 
   return (
     <form className="filter__container">
@@ -17,8 +23,6 @@ const Filters = props => {
           id="filter-name"
           type="text"
           placeholder="Search by name"
-          onKeyUp={filterByName}
-          queryName={queryName}
         />
       </label>
       <label className="filter__select" htmlFor="select-all" title="Select all">
@@ -26,18 +30,10 @@ const Filters = props => {
           type="checkbox"
           id="select-all"
           value="filter__select-all"
-          onChange={onSelectAllChange}
+          onChange={handleChange}
         />
         Select All
       </label>
     </form>
-  )
+  );
 }
-
-Filters.propTypes = {
-  onSelectAllChange: PropTypes.func.isRequired,
-  filterByName: PropTypes.func.isRequired,
-  queryName: PropTypes.string.isRequired
-}
-
-export default Filters

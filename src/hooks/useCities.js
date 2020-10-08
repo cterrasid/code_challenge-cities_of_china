@@ -3,24 +3,23 @@ import { ACTION } from "reducers/citiesReducer";
 
 export default function useCities() {
   const { state, dispatch } = useCitiesContext();
-  const { cities, selectedCities } = state;
+  const { cities, selectedCity, selectedCities } = state;
 
   return {
     cities,
+    selectedCity,
     selectedCities,
-    selectCity: (cities, id) =>
+    selectCities: (checked, id) =>
       dispatch({
         type: ACTION.UPDATE_CHECKED,
-        payload: cities.map((city) =>
-          city.id === id ? { ...city, isChecked: !city.isChecked } : city
-        ),
+        payload: checked
+          ? selectedCities.concat(cities.find((city) => city.id === id))
+          : selectedCities.filter((city) => city.id !== id),
       }),
-    collectCities: (cities) =>
+    selectAllCities: () =>
       dispatch({
-        type: ACTION.COLLECT_CITIES,
-        payload: cities.filter((city) =>
-          city.isChecked ? [...selectedCities, city] : false
-        ),
+        type: ACTION.SELECT_ALL_CITIES,
+        payload: selectedCities.includes(cities.forEach((city) => city)),
       }),
   };
 }

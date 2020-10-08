@@ -1,7 +1,6 @@
 export const ACTION = {
   UPDATE_CHECKED: "select/deselect_city",
-  COLLECT_CITIES: "collect_cities",
-  SELECT_ALL_CITIES: "select_all_cities",
+  SELECT_ALL_CITIES: "select/deselect_all_cities",
 };
 
 export default function citiesReducer(state, action) {
@@ -9,14 +8,13 @@ export default function citiesReducer(state, action) {
     case ACTION.UPDATE_CHECKED:
       return {
         ...state,
-        cities: action.payload,
+        selectedCities: action.payload,
       };
-    case ACTION.COLLECT_CITIES:
+    case ACTION.SELECT_ALL_CITIES:
       return {
         ...state,
         selectedCities: action.payload,
       };
-
     default:
       throw new Error(`Action ${action.type} is not working!`);
   }

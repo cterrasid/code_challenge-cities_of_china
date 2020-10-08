@@ -1,17 +1,17 @@
 import React from "react";
 import chinaIcon from "images/china-icon.png";
-import "./styles.scss";
 import useCities from "hooks/useCities";
+import "./styles.scss";
 
-export default function City({ id, name, chineseName }) {
-  const { cities, selectedCities, selectCity, collectCities } = useCities();
+export default function City({ city }) {
+  const { id, name, chineseName } = city;
+  const { selectedCities, selectCities } = useCities();
 
   const handleChange = (e) => {
-    const { id } = e.target;
-    selectCity(cities, id);
-    collectCities(cities);
+    const { id, checked } = e.target;
+    selectCities(checked, id);
   };
-  console.log(selectedCities);
+
   return (
     <>
       <label htmlFor={id}>
@@ -19,8 +19,9 @@ export default function City({ id, name, chineseName }) {
           id={id}
           type="checkbox"
           value={id}
-          name={name}
+          name="cities"
           onChange={handleChange}
+          checked={selectedCities.includes(city)}
         />
       </label>
       <div className="city__wrapper">

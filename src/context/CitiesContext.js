@@ -5,7 +5,9 @@ import citiesReducer from "reducers/citiesReducer";
 const CitiesContext = createContext({});
 
 const initialState = {
+  // cities: data.cities.map((city) => Object.assign(city, { isChecked: false })),
   cities: data.cities,
+  selectedCity: {},
   selectedCities: [],
 };
 

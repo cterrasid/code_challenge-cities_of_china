@@ -12,11 +12,7 @@ export default function ListOfCities() {
         {cities.map((city) => {
           return (
             <li key={city.id}>
-              <City
-                id={city.id}
-                name={city.name}
-                chineseName={city.chineseName}
-              />
+              <City city={city} />
             </li>
           );
         })}
