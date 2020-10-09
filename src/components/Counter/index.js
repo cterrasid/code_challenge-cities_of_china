@@ -1,6 +1,7 @@
 import React from "react";
 import useCities from "hooks/useCities";
 import useCounter from "hooks/useCounter";
+import Button from "components/Button";
 import "./styles.scss";
 
 export default function Counter() {
@@ -14,13 +15,7 @@ export default function Counter() {
   return (
     <section className="counter__container">
       <p className="counter__counter">{counter} items selected</p>
-      <button
-        className="counter__clear-button"
-        type="button"
-        onClick={handleCloseAll}
-      >
-        Clear
-      </button>
+      <Button click={handleCloseAll}>Clear all</Button>
     </section>
   );
 }

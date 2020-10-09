@@ -1,16 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import chinaIcon from "images/china-icon.png";
 import useCities from "hooks/useCities";
+import Button from "components/Button";
 import "./styles.scss";
 
 export default function City({ city, withClose = false }) {
   const { id, name, chineseName } = city;
-  const {
-    selectedCities,
-    selectCities,
-    clearSelectedCity,
-    countSelectedCities,
-  } = useCities();
+  const { selectedCities, selectCities, clearSelectedCity } = useCities();
 
   const handleChange = (e) => {
     const { id, checked } = e.target;
@@ -43,9 +39,9 @@ export default function City({ city, withClose = false }) {
           <p className="city__chinese-name">{chineseName}</p>
         </div>
         {withClose && (
-          <button className="city__close" id={id} onClick={handleCloseCity}>
+          <Button id={id} click={handleCloseCity}>
             X
-          </button>
+          </Button>
         )}
       </div>
     </>
