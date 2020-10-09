@@ -2,14 +2,14 @@ import React from "react";
 import Header from "components/Header";
 import Main from "components/Main";
 import Footer from "components/Footer";
-import "./styles.scss";
+import Layout from "components/Layout";
 
 export default function App() {
   return (
-    <div className="app__container">
+    <Layout>
       <Header />
       <Main />
       <Footer />
-    </div>
+    </Layout>
   );
 }
